@@ -50,8 +50,10 @@ const landing = () => {
       </motion.h1>
       <Link to="/Page2">
         <motion.button
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 450, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
-          className=" my-6 bg-opacity-40 border-2  object-right-bottom bg-black-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mx-6 rounded-full"
+          className="button-position my-6 bg-opacity-40 border-2 bg-black-500 hover:bg-gray-700 text-white font-bold py-2 px-28 mx-6 rounded-full"
         >
           Continue
         </motion.button>
@@ -78,9 +80,7 @@ const landing = () => {
         >
           <CardAction
             title="MandS"
-            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Voluptatibus quia, nulla! Maiores et perferendis eaque,
-          exercitationem praesentium nihil."
+            content="Let NLP - Natural Language processing help you in fetching your data stories. No need to learn complex database queries."
           ></CardAction>
         </motion.span>
 
@@ -95,9 +95,7 @@ const landing = () => {
         >
           <CardAction
             title="MandS"
-            content="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Voluptatibus quia, nulla! Maiores et perferendis eaque,
-          exercitationem praesentium nihil."
+            content="Our AI (Artificial Intelligence ) engine will provide you interesting chart options or a table of content as per your data needs."
           ></CardAction>
         </motion.span>
       </div>

@@ -20,4 +20,4 @@ const Sql_container = ({ search }) => {
 
 export default Sql_container
 
-const query = `select * from emp  where sal> any(select sal from emp where sal<3000);`
+const query = `select * from emp  where sal> any(select sal from emp where sal<500000);`

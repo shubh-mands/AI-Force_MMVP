@@ -4,7 +4,7 @@ import MicIcon from '@material-ui/icons/Mic'
 import bg from '../giphy1.gif'
 import { motion } from 'framer-motion'
 
-function search({ setSearch }) {
+function search({ setSearch, setConfig }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -36,7 +36,7 @@ function search({ setSearch }) {
           <button
             className="bg-red-500 text-white rounded-full p-2 hover:bg-indigo-400 focus:outline-none w-7 h-7 flex items-center justify-center"
             onClick={() => {
-              runSpeechRecognition(setSearch)
+              runSpeechRecognition(setSearch, setConfig)
             }}
           >
             <MicIcon />
@@ -47,7 +47,7 @@ function search({ setSearch }) {
   )
 }
 
-function runSpeechRecognition(setSearch) {
+function runSpeechRecognition(setSearch, setConfig) {
   // get output div reference
   // var output = document.getElementById("search");
   // get action element reference
@@ -96,8 +96,18 @@ function runSpeechRecognition(setSearch) {
     console.log(docx.sentences().data())
 
     // Tokenization
+    var token = docx.sentences().terms().out('array')
     console.log(docx.sentences().terms().out('array'))
+    // Here goes the JS object to automate graph output form.
 
+    for (let i = 0; i < token.length; i++) {
+      if (validConfigValues.has(token[i].toLowerCase())) {
+        setConfig(token[i])
+        break
+      }
+    }
+
+    console.log(token.length)
     // Part of Speech Tagging  + Entities
     console.log(docx.sentences().terms().out('tags'))
 
@@ -127,3 +137,16 @@ function runSpeechRecognition(setSearch) {
 }
 
 export default search
+
+const validConfigValues = new Set([
+  'columns',
+  'column',
+  'bars',
+  'bar',
+  'areas',
+  'area',
+  'lines',
+  'line',
+  'pies',
+  'pie',
+])

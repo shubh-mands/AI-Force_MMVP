@@ -1,4 +1,4 @@
-const configObj = {
+const columns = {
   chart: {
     type: 'column',
   },
@@ -77,4 +77,4 @@ const configObj = {
   ],
 }
 
-export default configObj
+export default columns

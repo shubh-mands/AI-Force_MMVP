@@ -1,17 +1,72 @@
-import React from "react";
-import Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
-import configUtils from "../configUtils.js";
+import React from 'react'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+// import configUtils from '../configUtils.js'
+import Columns from '../graphs/columns'
+import Bars from '../graphs/bars'
+import Areas from '../graphs/areas'
+import Lines from '../graphs/lines'
+import Pies from '../graphs/pies'
+import { useState, useEffect } from 'react'
 
-export default class graphs extends React.Component {
-  
-  render() {
-    return (
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={configUtils}
-       
-      />
-    );
-  }
+const Graphs = ({ config }) => {
+  // const [options, setOptions] = useState(null)
+
+  // useEffect(() => {
+  //   if (!config) {
+  //     setOptions(null)
+  //     return
+  //   }
+
+  //   switch (config) {
+  //     // is tarah baki case add karta ja
+
+  //     case 'bars':
+  //     case 'bar':
+  //       setOptions(Bars)
+  //       break
+
+  //     case 'columns':
+  //     case 'column':
+  //       setOptions(Columns)
+  //       break
+
+  //     case 'lines':
+  //     case 'line':
+  //       setOptions(Lines)
+  //       break
+
+  //     case 'areas':
+  //     case 'area':
+  //       setOptions(Areas)
+  //       break
+
+  //     case 'pies':
+  //     case 'pie':
+  //       setOptions(Pies)
+  //       break
+  //     default:
+  //       setOptions(Bars)
+  //       break
+  //   }
+  // }, [config])
+
+  const options = configToOption[config?.toLowerCase()] || Bars
+  console.log(config, options)
+
+  return <HighchartsReact highcharts={Highcharts} options={options} />
+}
+export default Graphs
+
+const configToOption = {
+  bars: Bars,
+  bar: Bars,
+  columns: Columns,
+  column: Columns,
+  lines: Lines,
+  line: Lines,
+  areas: Areas,
+  area: Areas,
+  pies: Pies,
+  pie: Pies,
 }
