@@ -1,13 +1,14 @@
-import React from 'react'
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+import React from "react";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
 // import configUtils from '../configUtils.js'
-import Columns from '../graphs/columns'
-import Bars from '../graphs/bars'
-import Areas from '../graphs/areas'
-import Lines from '../graphs/lines'
-import Pies from '../graphs/pies'
-import { useState, useEffect } from 'react'
+import Columns from "../graphs/columns";
+import Bars from "../graphs/bars";
+import Areas from "../graphs/areas";
+import Lines from "../graphs/lines";
+import Pies from "../graphs/pies";
+// import All from "../graphs/all";
+import { useState, useEffect } from "react";
 
 const Graphs = ({ config }) => {
   // const [options, setOptions] = useState(null)
@@ -51,12 +52,38 @@ const Graphs = ({ config }) => {
   //   }
   // }, [config])
 
-  const options = configToOption[config?.toLowerCase()] || Bars
-  console.log(config, options)
+  const options = configToOption[config?.toLowerCase()] || Bars;
+  console.log(config, options);
 
-  return <HighchartsReact highcharts={Highcharts} options={options} />
-}
-export default Graphs
+  if (config === "all") {
+    console.log("working");
+    return (
+      <div>
+        <div className="ml-6 mt-2">
+          <HighchartsReact highcharts={Highcharts} options={Pies} />
+        </div>
+        <div className="ml-6 mt-2">
+          <HighchartsReact highcharts={Highcharts} options={Areas} />
+        </div>
+        <div className="ml-6 mt-2">
+          <HighchartsReact highcharts={Highcharts} options={Columns} />
+        </div>
+        <div className="ml-6 mt-2">
+          <HighchartsReact highcharts={Highcharts} options={Bars} />
+        </div>
+        <div className="ml-6 mt-2">
+          <HighchartsReact highcharts={Highcharts} options={Lines} />
+        </div>
+      </div>
+    );
+  } else
+    return (
+      <div className="ml-6 mt-2 rounded-l-full">
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>
+    );
+};
+export default Graphs;
 
 const configToOption = {
   bars: Bars,
@@ -69,4 +96,5 @@ const configToOption = {
   area: Areas,
   pies: Pies,
   pie: Pies,
-}
+  all: "all",
+};

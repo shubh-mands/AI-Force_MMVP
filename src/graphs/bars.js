@@ -5,10 +5,10 @@ const bars = {
     type: 'bar',
   },
   title: {
-    text: 'Historic World Population by Region',
+    text: 'Employees Data',
   },
   subtitle: {
-    text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>',
+    text: 'MandS Consulting',
   },
   xAxis: {
     categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],

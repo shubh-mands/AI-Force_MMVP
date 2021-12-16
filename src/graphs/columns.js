@@ -3,7 +3,7 @@ const columns = {
     type: 'column',
   },
   title: {
-    text: 'Efficiency Optimization by Branch',
+    text: 'Employees Data',
   },
   xAxis: {
     categories: ['Seattle HQ', 'San Francisco', 'Tokyo'],

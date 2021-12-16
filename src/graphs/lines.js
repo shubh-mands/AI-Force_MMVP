@@ -1,10 +1,10 @@
 const lines = {
   title: {
-    text: 'Solar Employment Growth by Sector, 2010-2016',
+    text: 'Employees Data',
   },
 
   subtitle: {
-    text: 'Source: thesolarfoundation.com',
+    text: 'MandS Consulting',
   },
 
   yAxis: {
