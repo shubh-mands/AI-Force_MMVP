@@ -59,7 +59,38 @@ const Graphs = ({ config }) => {
     console.log("working");
     return (
       <div>
-        <div className="ml-6 mt-2">
+        <table>
+          <tr>
+            <td>
+              <div>
+                <HighchartsReact highcharts={Highcharts} options={Pies} />
+              </div>
+            </td>
+            <td>
+              <div>
+                <HighchartsReact highcharts={Highcharts} options={Areas} />
+              </div>
+            </td>
+            <td>
+              <div>
+                <HighchartsReact highcharts={Highcharts} options={Columns} />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <HighchartsReact highcharts={Highcharts} options={Bars} />
+              </div>
+            </td>
+            <td>
+              <div>
+                <HighchartsReact highcharts={Highcharts} options={Lines} />
+              </div>
+            </td>
+          </tr>
+        </table>
+        {/* <div className="ml-6 mt-2">
           <HighchartsReact highcharts={Highcharts} options={Pies} />
         </div>
         <div className="ml-6 mt-2">
@@ -73,7 +104,7 @@ const Graphs = ({ config }) => {
         </div>
         <div className="ml-6 mt-2">
           <HighchartsReact highcharts={Highcharts} options={Lines} />
-        </div>
+        </div> */}
       </div>
     );
   } else
